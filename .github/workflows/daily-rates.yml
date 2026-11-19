@@ -25,6 +25,8 @@ jobs:
       - name: Validate engine
         run: npm run validate
       - name: Update rates
+        env:
+          DATA_GOV_IN_API_KEY: ${{ secrets.DATA_GOV_IN_API_KEY }}
         run: npm run update
       - name: Commit updated data
         run: |
