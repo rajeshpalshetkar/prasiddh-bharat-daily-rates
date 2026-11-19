@@ -3,15 +3,109 @@
   "site": "Prasiddh Bharat",
   "language": "mr-IN",
   "timezone": "Asia/Kolkata",
-  "lastUpdated": null,
-  "generatedAt": null,
+  "lastUpdated": "2026-11-19T13:59:41.812Z",
+  "generatedAt": "2026-11-19T13:59:41.812Z",
   "sections": {
-    "goldSilver": {"status":"unavailable","source":null,"observedAt":null,"items":[],"message":"विश्वसनीय डेटा स्रोत अद्याप जोडलेला नाही."},
-    "fuel": {"status":"unavailable","source":null,"observedAt":null,"items":[],"message":"विश्वसनीय शहरनिहाय डेटा स्रोत अद्याप जोडलेला नाही."},
-    "currency": {"status":"pending","source":"Frankfurter / ECB reference rates","observedAt":null,"base":"INR","items":[],"message":"पहिल्या स्वयंचलित अपडेटची प्रतीक्षा."},
-    "stockMarket": {"status":"unavailable","source":null,"observedAt":null,"items":[],"message":"विश्वसनीय डेटा स्रोत अद्याप जोडलेला नाही."},
-    "agriculture": {"status":"unavailable","source":null,"observedAt":null,"items":[],"message":"Agmarknet किंवा अधिकृत बाजारभाव डेटा स्रोत जोडलेला नाही."}
+    "goldSilver": {
+      "status": "unavailable",
+      "source": null,
+      "observedAt": null,
+      "items": [],
+      "message": "विश्वसनीय डेटा स्रोत अद्याप जोडलेला नाही."
+    },
+    "fuel": {
+      "status": "unavailable",
+      "source": null,
+      "observedAt": null,
+      "items": [],
+      "message": "विश्वसनीय शहरनिहाय डेटा स्रोत अद्याप जोडलेला नाही."
+    },
+    "currency": {
+      "status": "published",
+      "source": "Frankfurter API (ECB reference data)",
+      "observedAt": "2026-11-18",
+      "base": "INR",
+      "items": [
+        {
+          "name": "AUD",
+          "value": 0.015898,
+          "unit": "1 INR = AUD",
+          "direction": "foreign-per-INR"
+        },
+        {
+          "name": "CAD",
+          "value": 0.015309,
+          "unit": "1 INR = CAD",
+          "direction": "foreign-per-INR"
+        },
+        {
+          "name": "CHF",
+          "value": 0.0090184,
+          "unit": "1 INR = CHF",
+          "direction": "foreign-per-INR"
+        },
+        {
+          "name": "EUR",
+          "value": 0.009757,
+          "unit": "1 INR = EUR",
+          "direction": "foreign-per-INR"
+        },
+        {
+          "name": "GBP",
+          "value": 0.0081266,
+          "unit": "1 INR = GBP",
+          "direction": "foreign-per-INR"
+        },
+        {
+          "name": "JPY",
+          "value": 1.706,
+          "unit": "1 INR = JPY",
+          "direction": "foreign-per-INR"
+        },
+        {
+          "name": "SGD",
+          "value": 0.0138,
+          "unit": "1 INR = SGD",
+          "direction": "foreign-per-INR"
+        },
+        {
+          "name": "USD",
+          "value": 0.010702,
+          "unit": "1 INR = USD",
+          "direction": "foreign-per-INR"
+        }
+      ],
+      "message": "हे ECB संदर्भ विनिमय दर आहेत; बँकेचे प्रत्यक्ष व्यवहार दर वेगळे असू शकतात."
+    },
+    "stockMarket": {
+      "status": "unavailable",
+      "source": null,
+      "observedAt": null,
+      "items": [],
+      "message": "विश्वसनीय डेटा स्रोत अद्याप जोडलेला नाही."
+    },
+    "agriculture": {
+      "status": "unavailable",
+      "source": "data.gov.in / AGMARKNET (API key required)",
+      "observedAt": null,
+      "items": [],
+      "message": "सरकारी डेटा मिळवण्यासाठी GitHub Secrets मध्ये DATA_GOV_IN_API_KEY जोडा."
+    }
   },
-  "history": [],
-  "notes": ["दरांसोबत स्रोत आणि अपडेट वेळ तपासा.","डेटा उपलब्ध नसल्यास दर दाखवू नका."]
+  "history": [
+    {
+      "generatedAt": "2026-11-19T13:59:41.812Z",
+      "statuses": {
+        "goldSilver": "unavailable",
+        "fuel": "unavailable",
+        "currency": "published",
+        "stockMarket": "unavailable",
+        "agriculture": "unavailable"
+      }
+    }
+  ],
+  "notes": [
+    "दरांसोबत स्रोत आणि अपडेट वेळ तपासा.",
+    "डेटा उपलब्ध नसल्यास दर दाखवू नका."
+  ]
 }
