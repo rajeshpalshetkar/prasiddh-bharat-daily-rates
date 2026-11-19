@@ -21,3 +21,8 @@
 #pb-daily-rates .pb-dr-source{display:block;color:#7b8492;font-size:11px;border-top:1px solid #f0f2f5;padding-top:10px}
 #pb-daily-rates .pb-dr-footer{font-size:12px;color:#6b7482;margin:18px 0;line-height:1.6}
 @media(max-width:650px){#pb-daily-rates .pb-dr-sections{grid-template-columns:1fr}#pb-daily-rates .pb-dr-toolbar{align-items:flex-start;flex-direction:column}}
+
+#pb-daily-rates .pb-dr-mandi{display:grid;gap:4px;padding:12px 0;border-bottom:1px solid #edf0f4}
+#pb-daily-rates .pb-dr-mandi>strong{color:#102747;font-size:15px}
+#pb-daily-rates .pb-dr-mandi>span{font-size:12px;color:#687589}
+#pb-daily-rates .pb-dr-mandi>small{font-size:11px;color:#586579;line-height:1.5}
