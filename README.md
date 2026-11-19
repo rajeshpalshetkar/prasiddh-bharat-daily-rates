@@ -9,19 +9,39 @@ Automated daily rates data engine and Blogger display layer.
 - Stock-market indices
 - Agricultural market prices
 
-## Data integrity
-The engine must never invent, estimate, or silently reuse stale prices as current. Every published value must include its source and observation date/time. If a provider is unavailable or not configured, the section is marked unavailable.
+## Current data integrations
 
-Some Indian rate feeds require an approved API, subscription, or credentials. Store secrets only in GitHub Actions repository secrets; never commit API keys.
+### Currency
+Frankfurter API / ECB reference rates. These are indicative reference rates, not bank retail cash or card quotes.
+
+### Agriculture
+Official data.gov.in resource generated through AGMARKNET:
+- Resource ID: `9ef84268-d588-465a-a308-a864a43d0070`
+- Maharashtra records are requested.
+- Fields include commodity, market, arrival date, minimum, maximum and modal wholesale price.
+- Prices are displayed per quintal.
+- Data is daily, not real-time.
+
+To enable it:
+1. Register/sign in at https://data.gov.in/.
+2. Create or obtain an API key for the Open Government Data API.
+3. In this repository open Settings → Secrets and variables → Actions → New repository secret.
+4. Name the secret exactly `DATA_GOV_IN_API_KEY` and paste the key as its value.
+5. Run Actions → Update Daily Rates → Run workflow.
+
+### Gold and silver
+IBJA's official API is a paid subscription. Its published terms restrict public redistribution/publication without prior written consent. This project does not scrape unofficial endpoints or publish IBJA values without documented permission. Contact IBJA for a subscription and written publication permission before enabling this section.
+
+### Fuel and stock market
+Not yet connected. These remain unavailable until reliable providers and publication terms are confirmed.
 
 ## Automation
 GitHub Actions runs daily at 00:30 UTC (06:00 IST) and supports manual runs.
 
-## Setup
-1. Add legitimate provider credentials under Settings → Secrets and variables → Actions.
-2. Run the workflow manually and inspect the Actions log.
-3. Blogger page assets and JSON are served through jsDelivr.
-4. Paste `blogger-page.html` into a Blogger Page in HTML view.
+## Data integrity
+The engine must never invent, estimate, or silently reuse stale prices as current. Each published value includes its source and observation date. If a provider is unavailable, the section is marked unavailable.
 
-## Current provider coverage
-The initial engine uses Frankfurter/ECB reference rates for currency data. Gold, fuel, stock indices and agricultural market prices remain unavailable until dependable providers are configured. No fabricated values are displayed.
+Store credentials only in GitHub Actions repository secrets; never commit API keys.
+
+## Blogger
+Paste `blogger-page.html` into a Blogger Page in HTML view. CSS, JavaScript and JSON are loaded from jsDelivr.
