@@ -1,0 +1,7 @@
+{
+  "name": "prasiddh-bharat-daily-rates",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {"update":"node engine/update.js","validate":"node --check engine/update.js && node --check assets/daily-rates.js"}
+}
