@@ -1,0 +1,39 @@
+name: Update Daily Rates
+
+on:
+  schedule:
+    - cron: "30 0 * * *" # 06:00 IST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-rates-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate engine
+        run: npm run validate
+      - name: Update rates
+        run: npm run update
+      - name: Commit updated data
+        run: |
+          if git diff --quiet -- data/daily-rates.json; then
+            echo "No data changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/daily-rates.json
+          git commit -m "chore: update daily rates data"
+          git push
