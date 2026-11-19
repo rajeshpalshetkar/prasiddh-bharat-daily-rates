@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "site": "Prasiddh Bharat",
+  "language": "mr-IN",
+  "timezone": "Asia/Kolkata",
+  "lastUpdated": null,
+  "generatedAt": null,
+  "sections": {
+    "goldSilver": {"status":"unavailable","source":null,"observedAt":null,"items":[],"message":"विश्वसनीय डेटा स्रोत अद्याप जोडलेला नाही."},
+    "fuel": {"status":"unavailable","source":null,"observedAt":null,"items":[],"message":"विश्वसनीय शहरनिहाय डेटा स्रोत अद्याप जोडलेला नाही."},
+    "currency": {"status":"pending","source":"Frankfurter / ECB reference rates","observedAt":null,"base":"INR","items":[],"message":"पहिल्या स्वयंचलित अपडेटची प्रतीक्षा."},
+    "stockMarket": {"status":"unavailable","source":null,"observedAt":null,"items":[],"message":"विश्वसनीय डेटा स्रोत अद्याप जोडलेला नाही."},
+    "agriculture": {"status":"unavailable","source":null,"observedAt":null,"items":[],"message":"Agmarknet किंवा अधिकृत बाजारभाव डेटा स्रोत जोडलेला नाही."}
+  },
+  "history": [],
+  "notes": ["दरांसोबत स्रोत आणि अपडेट वेळ तपासा.","डेटा उपलब्ध नसल्यास दर दाखवू नका."]
+}
