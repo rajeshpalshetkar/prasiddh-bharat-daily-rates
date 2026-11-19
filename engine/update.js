@@ -7,13 +7,12 @@ const data = JSON.parse(await fs.readFile(DATA_PATH, "utf8"));
 async function fetchJson(url) {
   const response = await fetch(url, {
     headers: { accept: "application/json", "user-agent": "PrasiddhBharatDailyRates/1.0" },
-    signal: AbortSignal.timeout(15000)
+    signal: AbortSignal.timeout(20000)
   });
-  if (!response.ok) throw new Error(`HTTP ${response.status} from ${url}`);
+  if (!response.ok) throw new Error(`HTTP ${response.status} from provider`);
   return response.json();
 }
 
-// Frankfurter exposes ECB reference rates, not retail bank cash/card quotes.
 async function updateCurrency() {
   const section = data.sections.currency;
   try {
@@ -37,11 +36,71 @@ async function updateCurrency() {
   }
 }
 
-await updateCurrency();
+function field(record, name) {
+  const key = Object.keys(record).find(k => k.toLowerCase() === name.toLowerCase());
+  return key ? record[key] : undefined;
+}
 
-// Other feeds remain unavailable until a dependable provider is configured.
-// Never fill these categories with guessed or stale prices.
-for (const key of ["goldSilver", "fuel", "stockMarket", "agriculture"]) {
+async function updateAgriculture() {
+  const section = data.sections.agriculture;
+  const apiKey = process.env.DATA_GOV_IN_API_KEY;
+  if (!apiKey) {
+    section.status = "unavailable";
+    section.source = "data.gov.in / AGMARKNET (API key required)";
+    section.items = [];
+    section.observedAt = null;
+    section.message = "सरकारी डेटा मिळवण्यासाठी GitHub Secrets मध्ये DATA_GOV_IN_API_KEY जोडा.";
+    return;
+  }
+
+  try {
+    const url = new URL("https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070");
+    url.searchParams.set("api-key", apiKey);
+    url.searchParams.set("format", "json");
+    url.searchParams.set("limit", "1000");
+    url.searchParams.set("filters[state]", "Maharashtra");
+    const payload = await fetchJson(url);
+    const records = Array.isArray(payload.records) ? payload.records : [];
+    const mapped = records.map(record => {
+      const min = Number(field(record, "min_price"));
+      const max = Number(field(record, "max_price"));
+      const modal = Number(field(record, "modal_price"));
+      return {
+        state: field(record, "state") ?? "Maharashtra",
+        district: field(record, "district") ?? "",
+        market: field(record, "market") ?? "",
+        commodity: field(record, "commodity") ?? "",
+        variety: field(record, "variety") ?? "",
+        grade: field(record, "grade") ?? "",
+        arrivalDate: field(record, "arrival_date") ?? "",
+        minPrice: Number.isFinite(min) ? min : null,
+        maxPrice: Number.isFinite(max) ? max : null,
+        modalPrice: Number.isFinite(modal) ? modal : null,
+        unit: "₹/क्विंटल"
+      };
+    }).filter(item => item.commodity && item.market && item.modalPrice !== null);
+
+    if (!mapped.length) throw new Error("API returned no usable Maharashtra mandi records");
+    section.status = "published";
+    section.source = "data.gov.in – AGMARKNET, Ministry of Agriculture & Farmers Welfare";
+    section.observedAt = mapped.reduce((latest, item) => item.arrivalDate > latest ? item.arrivalDate : latest, "");
+    section.items = mapped;
+    section.message = "महाराष्ट्रातील बाजार समित्यांचे दैनिक घाऊक दर. दर ₹ प्रति क्विंटल.";
+  } catch (error) {
+    section.status = "unavailable";
+    section.source = "data.gov.in / AGMARKNET";
+    section.items = [];
+    section.observedAt = null;
+    section.message = `शेतीमालाचे दर मिळवता आले नाहीत: ${error.message}`;
+    console.error("AGMARKNET update failed:", error.message);
+  }
+}
+
+await Promise.all([updateCurrency(), updateAgriculture()]);
+
+// Gold/silver, fuel and stock-market feeds remain unavailable until approved,
+// dependable providers and publication rights are configured.
+for (const key of ["goldSilver", "fuel", "stockMarket"]) {
   const section = data.sections[key];
   if (!section.source) {
     section.status = "unavailable";
