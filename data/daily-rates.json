@@ -3,8 +3,8 @@
   "site": "Prasiddh Bharat",
   "language": "mr-IN",
   "timezone": "Asia/Kolkata",
-  "lastUpdated": "2026-11-19T14:06:44.160Z",
-  "generatedAt": "2026-11-19T14:06:44.160Z",
+  "lastUpdated": "2026-11-19T14:11:15.579Z",
+  "generatedAt": "2026-11-19T14:11:15.579Z",
   "sections": {
     "goldSilver": {
       "status": "unavailable",
@@ -86,13 +86,23 @@
     },
     "agriculture": {
       "status": "unavailable",
-      "source": "data.gov.in / AGMARKNET (API key required)",
+      "source": "data.gov.in / AGMARKNET",
       "observedAt": null,
       "items": [],
-      "message": "सरकारी डेटा मिळवण्यासाठी GitHub Secrets मध्ये DATA_GOV_IN_API_KEY जोडा."
+      "message": "शेतीमालाचे दर मिळवता आले नाहीत: fetch failed"
     }
   },
   "history": [
+    {
+      "generatedAt": "2026-11-19T14:11:15.579Z",
+      "statuses": {
+        "goldSilver": "unavailable",
+        "fuel": "unavailable",
+        "currency": "published",
+        "stockMarket": "unavailable",
+        "agriculture": "unavailable"
+      }
+    },
     {
       "generatedAt": "2026-11-19T14:06:44.160Z",
       "statuses": {
