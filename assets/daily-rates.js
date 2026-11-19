@@ -19,7 +19,9 @@
     root.querySelector(".pb-dr-sections").innerHTML = Object.entries(labels).map(([key,label]) => {
       const section = data.sections?.[key] ?? {};
       const rows = Array.isArray(section.items) && section.items.length
-        ? '<div class="pb-dr-items">' + section.items.map(item => '<div class="pb-dr-item"><span>' + esc(item.name) + '</span><strong>' + format(item.value) + (item.unit ? '<small>' + esc(item.unit) + '</small>' : '') + '</strong></div>').join("") + '</div>'
+        ? key === "agriculture"
+          ? '<div class="pb-dr-items">' + section.items.slice(0, 100).map(item => '<div class="pb-dr-mandi"><strong>' + esc(item.commodity) + '</strong><span>' + esc([item.market,item.district].filter(Boolean).join(", ")) + '</span><small>किमान ₹' + format(item.minPrice) + ' · कमाल ₹' + format(item.maxPrice) + ' · सर्वसाधारण ₹' + format(item.modalPrice) + ' / क्विंटल</small><small>आवक तारीख: ' + esc(item.arrivalDate || "उपलब्ध नाही") + '</small></div>').join("") + '</div>'
+          : '<div class="pb-dr-items">' + section.items.map(item => '<div class="pb-dr-item"><span>' + esc(item.name) + '</span><strong>' + format(item.value) + (item.unit ? '<small>' + esc(item.unit) + '</small>' : '') + '</strong></div>').join("") + '</div>'
         : '<p class="pb-dr-empty">' + esc(section.message || "विश्वसनीय माहिती उपलब्ध झाल्यावर येथे दाखवली जाईल.") + '</p>';
       const source = section.source ? '<small class="pb-dr-source">स्रोत: ' + esc(section.source) + (section.observedAt ? ' · माहितीची तारीख: ' + esc(section.observedAt) : '') + '</small>' : "";
       return '<section class="pb-dr-card"><div class="pb-dr-cardhead"><h2>' + label + '</h2><span class="pb-dr-status">' + esc(statusText[section.status] || "स्थिती अज्ञात") + '</span></div>' + rows + source + '</section>';
