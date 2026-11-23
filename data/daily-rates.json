@@ -3,8 +3,8 @@
   "site": "Prasiddh Bharat",
   "language": "mr-IN",
   "timezone": "Asia/Kolkata",
-  "lastUpdated": "2026-11-22T07:19:16.679Z",
-  "generatedAt": "2026-11-22T07:19:16.679Z",
+  "lastUpdated": "2026-11-23T08:02:31.102Z",
+  "generatedAt": "2026-11-23T08:02:31.102Z",
   "sections": {
     "goldSilver": {
       "status": "unavailable",
@@ -93,6 +93,16 @@
     }
   },
   "history": [
+    {
+      "generatedAt": "2026-11-23T08:02:31.102Z",
+      "statuses": {
+        "goldSilver": "unavailable",
+        "fuel": "unavailable",
+        "currency": "published",
+        "stockMarket": "unavailable",
+        "agriculture": "unavailable"
+      }
+    },
     {
       "generatedAt": "2026-11-22T07:19:16.679Z",
       "statuses": {
