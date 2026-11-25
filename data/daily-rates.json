@@ -3,8 +3,8 @@
   "site": "Prasiddh Bharat",
   "language": "mr-IN",
   "timezone": "Asia/Kolkata",
-  "lastUpdated": "2026-11-24T10:19:26.312Z",
-  "generatedAt": "2026-11-24T10:19:26.312Z",
+  "lastUpdated": "2026-11-25T09:00:00.760Z",
+  "generatedAt": "2026-11-25T09:00:00.760Z",
   "sections": {
     "goldSilver": {
       "status": "unavailable",
@@ -23,48 +23,48 @@
     "currency": {
       "status": "published",
       "source": "Frankfurter API (ECB reference data)",
-      "observedAt": "2026-11-23",
+      "observedAt": "2026-11-24",
       "base": "INR",
       "items": [
         {
           "name": "AUD",
-          "value": 0.016265,
+          "value": 0.016204,
           "unit": "1 INR = AUD",
           "direction": "foreign-per-INR"
         },
         {
           "name": "CAD",
-          "value": 0.015457,
+          "value": 0.015419,
           "unit": "1 INR = CAD",
           "direction": "foreign-per-INR"
         },
         {
           "name": "CHF",
-          "value": 0.0090378,
+          "value": 0.0090144,
           "unit": "1 INR = CHF",
           "direction": "foreign-per-INR"
         },
         {
           "name": "EUR",
-          "value": 0.0098386,
+          "value": 0.0098164,
           "unit": "1 INR = EUR",
           "direction": "foreign-per-INR"
         },
         {
           "name": "GBP",
-          "value": 0.0082323,
+          "value": 0.0082164,
           "unit": "1 INR = GBP",
           "direction": "foreign-per-INR"
         },
         {
           "name": "JPY",
-          "value": 1.712,
+          "value": 1.7119,
           "unit": "1 INR = JPY",
           "direction": "foreign-per-INR"
         },
         {
           "name": "SGD",
-          "value": 0.013896,
+          "value": 0.013881,
           "unit": "1 INR = SGD",
           "direction": "foreign-per-INR"
         },
@@ -93,6 +93,16 @@
     }
   },
   "history": [
+    {
+      "generatedAt": "2026-11-25T09:00:00.760Z",
+      "statuses": {
+        "goldSilver": "unavailable",
+        "fuel": "unavailable",
+        "currency": "published",
+        "stockMarket": "unavailable",
+        "agriculture": "unavailable"
+      }
+    },
     {
       "generatedAt": "2026-11-24T10:19:26.312Z",
       "statuses": {
