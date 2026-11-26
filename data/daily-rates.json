@@ -3,8 +3,8 @@
   "site": "Prasiddh Bharat",
   "language": "mr-IN",
   "timezone": "Asia/Kolkata",
-  "lastUpdated": "2026-11-25T09:00:00.760Z",
-  "generatedAt": "2026-11-25T09:00:00.760Z",
+  "lastUpdated": "2026-11-26T08:47:26.211Z",
+  "generatedAt": "2026-11-26T08:47:26.211Z",
   "sections": {
     "goldSilver": {
       "status": "unavailable",
@@ -23,54 +23,54 @@
     "currency": {
       "status": "published",
       "source": "Frankfurter API (ECB reference data)",
-      "observedAt": "2026-11-24",
+      "observedAt": "2026-11-25",
       "base": "INR",
       "items": [
         {
           "name": "AUD",
-          "value": 0.016204,
+          "value": 0.016502,
           "unit": "1 INR = AUD",
           "direction": "foreign-per-INR"
         },
         {
           "name": "CAD",
-          "value": 0.015419,
+          "value": 0.015458,
           "unit": "1 INR = CAD",
           "direction": "foreign-per-INR"
         },
         {
           "name": "CHF",
-          "value": 0.0090144,
+          "value": 0.0090075,
           "unit": "1 INR = CHF",
           "direction": "foreign-per-INR"
         },
         {
           "name": "EUR",
-          "value": 0.0098164,
+          "value": 0.0099147,
           "unit": "1 INR = EUR",
           "direction": "foreign-per-INR"
         },
         {
           "name": "GBP",
-          "value": 0.0082164,
+          "value": 0.0083016,
           "unit": "1 INR = GBP",
           "direction": "foreign-per-INR"
         },
         {
           "name": "JPY",
-          "value": 1.7119,
+          "value": 1.7273,
           "unit": "1 INR = JPY",
           "direction": "foreign-per-INR"
         },
         {
           "name": "SGD",
-          "value": 0.013881,
+          "value": 0.014009,
           "unit": "1 INR = SGD",
           "direction": "foreign-per-INR"
         },
         {
           "name": "USD",
-          "value": 0.010762,
+          "value": 0.010842,
           "unit": "1 INR = USD",
           "direction": "foreign-per-INR"
         }
@@ -93,6 +93,16 @@
     }
   },
   "history": [
+    {
+      "generatedAt": "2026-11-26T08:47:26.211Z",
+      "statuses": {
+        "goldSilver": "unavailable",
+        "fuel": "unavailable",
+        "currency": "published",
+        "stockMarket": "unavailable",
+        "agriculture": "unavailable"
+      }
+    },
     {
       "generatedAt": "2026-11-25T09:00:00.760Z",
       "statuses": {
